@@ -7,6 +7,10 @@ server.use(express.json());
 
 const port = process.env.PORT || 3000;
 
+const blogsRoutes = require('./routes/blogs')
+server.use('/blogs', blogsRoutes)
+
+
 // Root route
 server.get('/', (req, res) => res.send('Hello, BLOGS!'))
 
