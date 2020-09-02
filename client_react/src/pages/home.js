@@ -39,13 +39,13 @@ class Home extends Component {
             <div>
                 <form id="mainForm" onSubmit={this.handleSubmit}>
 
-                    <label for="author">Author</label>
+                    <label htmlFor="author">Author</label>
                     <input type="text" id="author" onChange={this.handleChange}/>
 
-                    <label for="title">Title</label>
+                    <label htmlFor="title">Title</label>
                     <input type="text" id="title" onChange={this.handleChange}/>
 
-                    <label for="entry">Entry</label>
+                    <label htmlFor="entry">Entry</label>
                     <input type="text" id="entry" onChange={this.handleChange}/>
 
                     <input type="submit"/>
