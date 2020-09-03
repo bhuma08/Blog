@@ -11,6 +11,8 @@ class Home extends Component {
     }
 
     handleChange = e => {
+        // const { id, value } = e.target;
+        // this.setState({ [id]: value })
         this.setState({ author: e.target.author.value })
         this.setState({ title: e.target.title.value })
         this.setState({ entry: e.target.entry.value })
