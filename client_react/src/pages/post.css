@@ -1,0 +1,19 @@
+h2 {
+    font-family: CustomSansSerif,'Lucida Grande',Arial,sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+}
+ p {
+    font-family: CustomSerif,Georgia,Cambria,'Times New Roman',serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+ }
+
+ .smaller {
+    font-family: CustomSerif,Georgia,Cambria,'Times New Roman',serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+ }

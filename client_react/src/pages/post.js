@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './post.css';
 
 export default class Post extends Component {
     
@@ -41,10 +42,10 @@ export default class Post extends Component {
     render() {
         return (
             <div>
-                <h2>Title: {this.state.title}</h2>
-                <p>Entry: {this.state.entry}</p>
-                <p>Author: {this.state.author}</p>
-                <p>Date: {this.state.date}</p>    
+                <h2>{this.state.title}</h2>
+                <p>{this.state.entry}</p>
+                <p className="smaller">Author: {this.state.author}</p>
+                <p className="smaller">Date: {this.state.date.slice(0,10)}</p>    
             </div>
         )
     }
