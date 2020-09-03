@@ -41,7 +41,7 @@ export default class Post extends Component {
 
     render() {
         return (
-            <div>
+            <div id='entirePost'>
                 <h2>{this.state.title}</h2>
                 <p>{this.state.entry}</p>
                 <p className="smaller">Author: {this.state.author}</p>

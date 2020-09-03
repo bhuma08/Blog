@@ -45,17 +45,11 @@ class Home extends Component {
         return(
             <div>
                 <form id="mainForm" onSubmit={this.handleSubmit}>
+                    <input className='input' type="text" id="author" placeholder= 'Author' onChange={this.handleChange}/><br></br>
+                    <input className='input' type="text" id="title" placeholder='Title' onChange={this.handleChange}/><br></br>
+                    <textarea id="entry" placeholder='Entry' onChange={this.handleChange}/><br></br>
 
-                    <label htmlFor="author">Author</label>
-                    <input type="text" id="author" onChange={this.handleChange}/>
-
-                    <label htmlFor="title">Title</label>
-                    <input type="text" id="title" onChange={this.handleChange}/>
-
-                    <label htmlFor="entry">Entry</label>
-                    <input type="text" id="entry" onChange={this.handleChange}/>
-
-                    <input type="submit"/>
+                    <input className='submit' type="submit"/>
                 </form>
 
             </div>
