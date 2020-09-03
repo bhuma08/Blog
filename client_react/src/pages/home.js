@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router";
 
 class Home extends Component {
 
@@ -31,7 +32,12 @@ class Home extends Component {
     
         fetch('http://localhost:3000/blogs', options)
             .then(r => r.json())
+            // .then(console.log)
+            .then(resp => this.props.history.push(`/${resp.id}`))
+
             .catch(console.warn)
+
+        
     }
 
     render(){
@@ -56,4 +62,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default withRouter(Home);
