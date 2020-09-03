@@ -1,59 +1,46 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-class Home extends Component {
+function Form(){
+    const [ author, setAuthor ] = useState("")
+    const [ title, setTitle ] = useState("")
+    const [ entry, setEntry ] = useState("")
 
-    state = {
-        author:"",
-        title:"",
-        entry:""
+    let history = useHistory();
+    const handleChange1 = e =>{
+        setAuthor(e.target.value)
+    }
+    const handleChange2 = e =>{
+        setTitle(e.target.value)
+    }
+    const handleChange3 = e =>{
+        setEntry(e.target.value)
+    }
+    const handleSubmit = e => {
+        e.preventDefault()
+        console.log("All submitted")
+        console.log(author)
+        axios.post(`http://localhost:3000/blogs`, { author, title, entry })
+        .then(function (response) {
+            console.log(results);
+        })
+        history.push('./:id')
     }
 
-    handleChange = e => {
-        this.setState({ author: e.target.author.value })
-        this.setState({ title: e.target.title.value })
-        this.setState({ entry: e.target.entry.value })
-    }
+    return(
+        <>
+            <form id="mainForm" onSubmit={handleSubmit}>
+                <input type="text" onChange={handleChange1} id="author" value={author}/>
+                <input type="text" onChange={handleChange2} id="title" value={title} />
+                <input type="text" onChange={handleChange3} id="entry" value={entry}/>
+                <input type="submit"/>
+            </form>
+        </>
+    )
 
-    handleSubmit = e => {
-        e.preventDefault();
-        
-        const data = {
-            author: e.target.author.value,
-            title: e.target.title.value,
-            entry: e.target.entry.value
-        }
-    
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {"Content-Type": "application/json"}
-        }
-    
-        fetch('http://localhost:3000/blogs', options)
-            .then(r => r.json())
-            .catch(console.warn)
-    }
-
-    render(){
-        return(
-            <div>
-                <form id="mainForm" onSubmit={this.handleSubmit}>
-
-                    <label htmlFor="author">Author</label>
-                    <input type="text" id="author" onChange={this.handleChange}/>
-
-                    <label htmlFor="title">Title</label>
-                    <input type="text" id="title" onChange={this.handleChange}/>
-
-                    <label htmlFor="entry">Entry</label>
-                    <input type="text" id="entry" onChange={this.handleChange}/>
-
-                    <input type="submit"/>
-                </form>
-
-            </div>
-        )
-    }
 }
 
-export default Home;
+
+export default Form;
+
